@@ -8,9 +8,9 @@
 - https://create-react-app.dev/docs/adding-bootstrap/
 - npm install bootstrap
 - import bootstrap in index.js
-### 4.install router
+### 4. install router
 - npm install react-router-dom@5
-### install fontawesome:
+### 5. install fontawesome:
 - https://fontawesome.com/docs/web/use-with/react/
 - https://fontawesome.com/icons/linkedin?f=brands&s=solid
 - https://fontawesome.com/docs/web/use-with/react/add-icons
@@ -19,8 +19,8 @@
 - npm i --save @fortawesome/free-brands-svg-icons
 - npm i --save @fortawesome/react-fontawesome@latest
 - import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-### install bootstrap icon
+### 6. install bootstrap icon
 - npm i bootstrap-icons
 - import "bootstrap-icons/font/bootstrap-icons.css"
-### install react bootstrap (for modal)
+### 7. install react bootstrap (for modal)
 - https://react-bootstrap.netlify.app/docs/getting-started/introduction
