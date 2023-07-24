@@ -33,11 +33,6 @@ const Signup = ()=>{
 
     const createUser=(e)=>{
         e.preventDefault()
-        console.log(email)
-        console.log(password)
-        console.log(firstName)
-        console.log(lastName)
-        console.log(gender)
         let prefer = []
         if(friend===true){
             prefer.push('friend')
@@ -48,7 +43,6 @@ const Signup = ()=>{
         if(newspaper===true){
             prefer.push('news paper')
         }
-        console.log(prefer)
 
         const newUser = {Email: email, Password: password, 
             FirstName: firstName, LastName: lastName, 
@@ -56,7 +50,6 @@ const Signup = ()=>{
         
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential)=>{
-            console.log(userCredential.user)
             // save the user into database
             const userKey = userCredential.user.uid
             set(ref(db, 'Users/' + userKey), newUser)
@@ -65,7 +58,6 @@ const Signup = ()=>{
                 signOut(auth)
                 .then(() => {
                     // Sign-out successful.
-                    console.log('done')
                     history.push("/")
                 })
                 .catch((error) => {

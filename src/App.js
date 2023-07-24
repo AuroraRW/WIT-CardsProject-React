@@ -2,26 +2,11 @@ import './App.css';
 import Cards from './components/Cards/Cards'
 import Signup from './components/Auth/Signup'
 import Login from './components/Auth/Login'
-import {useState} from 'react'
+import NewCard from './components/Cards/NewCard';
+// import {useState} from 'react'
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 function App() {
-  const [userName, setUsername] = useState('')
-  const [cardsData, setCardsData] = useState([])
-  const updateName = (name)=>{
-    setUsername(name)
-  }
-  const getCards = (cards)=>{
-    let finalCards=[]
-    
-    for(let [k,v] of Object.entries(cards)){
-      let newCard={}
-      newCard={...v, key:k}
-      finalCards.push(newCard)
-    }
-    setCardsData(finalCards)
-  }
-
   // const cardData = [
   //   {
   //     id: 1,
@@ -63,13 +48,16 @@ function App() {
           <Signup />
         </Route>
         <Route path="/login">
-          <Login onUpdateName={updateName} onGetCards={getCards} />
+          <Login />
         </Route>
         <Route path="/cards">
-          <Cards userName={userName} cardsData = {cardsData}/>
+          <Cards />
+        </Route>
+        <Route path="/newcard">
+          <NewCard />
         </Route>
         <Route path="/">
-          <Login onUpdateName={updateName} onGetCards={getCards} />
+          <Login />
         </Route>
       </Switch>
     </Router>

@@ -1,7 +1,7 @@
 import {auth, signInWithEmailAndPassword, db, ref, get, child} from '../../module/firebase'
 import {useState} from 'react'
 import {Link, useHistory} from 'react-router-dom'
-const Login = (props)=>{
+const Login = ()=>{
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -12,26 +12,13 @@ const Login = (props)=>{
 
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential)=>{
-            console.log(userCredential.user)
             const userKey = userCredential.user.uid
             const dbRef = ref(db)
             get(child(dbRef, `Users/${userKey}`)).then((snapshot) => {
                 if (snapshot.exists()) {
-                    console.log(snapshot.val());
                     let name = snapshot.val().FirstName
-                    console.log(name)
-                    // get cards
-                    get(ref(db, 'Cards')).then((snapshot)=>{
-                        if (snapshot.exists()) {
-                            console.log(snapshot.val());
-                            const cardsData = snapshot.val()
-                            console.log(cardsData)
-                            props.onGetCards(cardsData)
-                            props.onUpdateName(name)
-                            history.push("/cards")
-                        }
-                    })
-
+                    localStorage.setItem('username', name)
+                    history.push('/cards')
 
                 } else {
                   console.log("No data available");

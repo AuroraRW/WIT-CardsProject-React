@@ -1,3 +1,15 @@
-.colorStyle{
+/* .colorStyle{
     color:blueviolet
+} */
+.fa-linkedin{
+    color:rgb(0, 74, 120);
+    font-size: 24px;
+}
+.fa-linkedin:hover, .bi-pencil-square:hover, .bi-trash3-fill:hover{
+    color: rgb(1, 158, 255);
+    cursor: pointer;
+}
+.bi-pencil-square, .bi-trash3-fill{
+    color:rgb(0, 74, 120);
+    margin: 0 5px;
 }
