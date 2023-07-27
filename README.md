@@ -30,3 +30,8 @@
 - import "bootstrap-icons/font/bootstrap-icons.css"
 ### 8. install react bootstrap (for modal)
 - https://react-bootstrap.netlify.app/docs/getting-started/introduction
+
+### 9. jQuery in React
+- https://medium.com/how-to-react/how-to-use-jquery-in-your-react-app-b425727a32fd
+- npm install jquery --save
+- import $ from 'jquery'
