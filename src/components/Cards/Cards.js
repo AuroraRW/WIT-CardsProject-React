@@ -1,12 +1,12 @@
 import CardInfor from "./CardInfor"
 import {Link, useHistory} from "react-router-dom"
 import { auth, signOut, db, ref, get } from '../../module/firebase'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 const Cards = ()=>{
     const [cardsData, setCardsData] = useState([])
     const history = useHistory()
     
-    if (localStorage.getItem('username')) {
+    useEffect(()=>{
         get(ref(db, 'Cards')).then((snapshot)=>{
             if (snapshot.exists()) {
                 const data = snapshot.val()
@@ -18,8 +18,14 @@ const Cards = ()=>{
                     finalCards.push(newCard)
                 }
                 setCardsData(finalCards)
+                console.log('aaaa')
             }
         })
+    },[])
+    
+
+    if (localStorage.getItem('username')) {
+        
         const logoutUser = () => {
             signOut(auth)
                 .then(() => {
@@ -31,6 +37,18 @@ const Cards = ()=>{
                     console.log(error)
                 });
         }
+        const cardsEle=()=>{
+            if({cardsData}){
+                return (cardsData.map(card=>(
+                    <CardInfor key={card.key} index={card.key} name={card.name} level={card.level} 
+                    point={card.point} image={card.imageURL} description={card.description}/>
+                    ))
+                )     
+            }else{
+                return (<></>)
+            }
+            
+        }
         return(
             <div className="container">
                 <div className="d-flex justify-content-end m-2">
@@ -38,11 +56,7 @@ const Cards = ()=>{
                     <button className="btn btn-warning" onClick={logoutUser}>Logout</button>
                 </div>
                 <div className="row"> 
-                    {cardsData.map(card=>(
-                        <CardInfor key={card.key} index={card.key} name={card.name} level={card.level} 
-                        point={card.point} image={card.imageURL} description={card.description}/>
-                        ))
-                    }
+                    {cardsEle()}
                 </div>
                 <Link className="btn btn-warning" to='/newcard'>Create</Link>
             </div> 

@@ -11,12 +11,12 @@
 ### 4. install firebase
 - https://firebase.google.com/docs/web/setup
 - npm install firebase
-- import { initializeApp } from "firebase/app";
+- import { initializeApp } from "firebase/app"
 - import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
 - import {getDatabase, ref, set, child, get, remove } from 'firebase/database'
 ### 5. install router
 - npm install react-router-dom@5
-### 6. install fontawesome:
+### 6. install fontawesome
 - https://fontawesome.com/docs/web/use-with/react/
 - https://fontawesome.com/icons/linkedin?f=brands&s=solid
 - https://fontawesome.com/docs/web/use-with/react/add-icons
