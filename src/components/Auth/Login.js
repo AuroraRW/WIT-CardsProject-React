@@ -1,12 +1,21 @@
 import {auth, signInWithEmailAndPassword, db, ref, get, child} from '../../module/firebase'
 import {useState} from 'react'
 import {Link, useHistory} from 'react-router-dom'
+import InputEmail from './InputEmail'
+import InputPassword from './InputPassword'
+
 const Login = ()=>{
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     const history = useHistory()
     
+    const saveEmail = (userEmail)=>{
+        setEmail(userEmail)
+    }
+    const savePassword = (userPassword)=>{
+        setPassword(userPassword)
+    }
     const loginUser = (e)=>{
         e.preventDefault()
 
@@ -35,15 +44,8 @@ const Login = ()=>{
                 <div className="col-lg-4">
                     <h1 className="text-center fst-italic">Login</h1>
                     <form action="" className="bg-light p-3 rounded-3 shadow">
-                        <div className="mb-3">
-                            <label className="form-label" htmlFor="">Email:</label>
-                            <input className="form-control" type="email" size="30" placeholder="example@email.com" onChange={(e) => {setEmail(e.target.value)}}/>
-                        </div>
-                        <div className="mb-3">
-                            <label className="form-label" htmlFor="">Password:</label>
-                            <input className="form-control" type="password" size="30" placeholder="Password" onChange={(e) => {setPassword(e.target.value)}}/>
-                        </div>
-            
+                        <InputEmail onSaveEmail={saveEmail}/>
+                        <InputPassword onSavePassword={savePassword}/>
                         <div className="d-flex justify-content-between">
                             <Link to="/signup" className="text-decoration-none text-warning">Create a new account</Link>
                             <button className="btn btn-warning my-btn-color" onClick={loginUser}>Log In</button>

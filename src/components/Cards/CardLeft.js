@@ -5,7 +5,7 @@ const CardLeft = (props)=>{
     return(
         <div className="bg-info rounded-2 px-2">
             <CardBar title={'LEVEL'} level={props.level}/>
-            <CardImage />
+            <CardImage image = {props.image}/>
             <CardBar title={'POINTS'} point={props.point}/>
         </div>
     )

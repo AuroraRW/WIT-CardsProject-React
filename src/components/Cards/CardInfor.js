@@ -29,7 +29,7 @@ const CardInfor = (props)=>{
         set(ref(db, 'Cards/' + props.index), data)
         .then(()=>{
             setShow(false)
-            history.push('/cards')
+            history.go('/cards')
         })
         
     }
@@ -40,7 +40,7 @@ const CardInfor = (props)=>{
                 <CardLeft level={props.level} image={props.image} point={props.point}/>
                 <CardRight index={props.index} name={props.name} description={props.description} onShowModal={showModal}/>
             </div>
-            <Modal show={show} onHide={closeModal}>
+            <Modal show={show} onHide={closeModal} backdrop="static">
                 <Modal.Header closeButton>
                     <Modal.Title>Edit Card</Modal.Title>
                 </Modal.Header>

@@ -18,12 +18,10 @@ const Cards = ()=>{
                     finalCards.push(newCard)
                 }
                 setCardsData(finalCards)
-                console.log('aaaa')
             }
         })
     },[])
     
-
     if (localStorage.getItem('username')) {
         
         const logoutUser = () => {

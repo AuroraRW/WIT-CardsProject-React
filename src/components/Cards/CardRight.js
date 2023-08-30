@@ -7,7 +7,8 @@ const CardRight = (props)=>{
     const history = useHistory()
     const deleteCard = ()=>{
         remove(ref(db, 'Cards/' + props.index)).then(()=>{
-            history.push('/cards')
+            console.log('aaaa')
+            history.go('/cards')
         })
     }
 
